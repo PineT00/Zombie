@@ -67,7 +67,7 @@ void SceneGame::Update(float dt)
         Zombie* zombie = Zombie::Create(zombieType);
         zombie->Init();
         zombie->Reset();
-        zombie->SetPosition(Utils::RandomInUnitCircle() * 500.f);
+        zombie->SetPosition(Utils::RandomInUnitCircle() * 500.f + player->GetPosition());
         AddGo(zombie);
     }
 }

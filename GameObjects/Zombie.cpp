@@ -52,18 +52,6 @@ void Zombie::Reset()
     player = dynamic_cast<Player*>(SCENE_MGR.GetCurrentScene()->FindGo("Player"));
 }
 
-void Zombie::ZombieMove(float dt)
-{
-    direction.x = player->GetPosition().x;
-    direction.y = player->GetPosition().y;
-
-    if (Utils::Magnitude(direction) > 1.f)
-    {
-        Utils::Normalize(direction);
-    }
-    SetPosition(position + direction * speed * dt);
-    //Translate(direction * speed * dt);
-}
 
 void Zombie::Update(float dt)
 {
@@ -73,7 +61,6 @@ void Zombie::Update(float dt)
     Utils::Normalize(look); 
 
     SetRotation(Utils::Angle(look));
-    //SetPosition(position + look * speed * dt);
     Translate(look * speed * dt);
 
 }
